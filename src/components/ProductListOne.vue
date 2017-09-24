@@ -7,6 +7,7 @@
         <span class="price">Rp.{{productz.price}}</span>
       </li>
     </ul>
+    <button v-on:click="reducePrice">Reduce Price</button>
   </div>
 </template>
 
@@ -17,6 +18,14 @@ export default {
       return this.$store.state.products
     },
     saleProducts () {
+    }
+  },
+  methods: {
+    reducePrice () {
+      // return this.$store.state.products.forEach(product => {
+      //   product.price -= 1000
+      // })
+      this.$store.commit('reducePrice')
     }
   }
 }
