@@ -6,11 +6,22 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     products: [
-      {name: 'Kupling', price: 20},
-      {name: 'Bak Perseneling', price: 40},
-      {name: 'Busi', price: 60},
-      {name: 'CDI Vespa', price: 80},
-      {name: 'Lantai Vespa', price: 100}
+      {name: 'Tali Kupling', price: 5000},
+      {name: 'Bak Perseneling', price: 75000},
+      {name: 'Busi', price: 20000},
+      {name: 'CDI Vespa', price: 150000},
+      {name: 'Lantai Vespa', price: 175000}
     ]
+  },
+  getters: {
+    saleProducts: state => {
+      var saleProducts = state.products.map(product => {
+        return {
+          name: '==' + product.name + '==',
+          price: product.price / 2
+        }
+      })
+      return saleProducts
+    }
   }
 })
