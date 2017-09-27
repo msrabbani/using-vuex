@@ -7,7 +7,7 @@
         <span class="price">Rp.{{productz.price}}</span>
       </li>
     </ul>
-    <button v-on:click="reducePrice">Reduce Price</button>
+    <button v-on:click="reducePrice(500)">Reduce Price</button>
   </div>
 </template>
 
@@ -21,11 +21,14 @@ export default {
     }
   },
   methods: {
-    reducePrice () {
+    reducePrice (amount) {
       // return this.$store.state.products.forEach(product => {
       //   product.price -= 1000
       // })
-      this.$store.commit('reducePrice')
+
+      // this.$store.commit('reducePrice')
+
+      this.$store.dispatch('reducePrice', amount) // dispatch untuk memanggil method actions di store
     }
   }
 }
